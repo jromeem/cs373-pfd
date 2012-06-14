@@ -1,3 +1,28 @@
+commit 4c7fa39bec906955cbc0d6e51fdc186fe16cb94f
+Author: jromeem <jerome.e.martinez@gmail.com>
+Date:   Thu Jun 14 15:19:50 2012 -0500
+
+    added sample input form sphere
+
+commit 0ce6646d627b6640cc196912a629c3c73ad0ac33
+Merge: a88e4fe c8b9d2f
+Author: Jerome Martinez <jerome.e.martinez@gmail.com>
+Date:   Thu Jun 14 12:21:00 2012 -0500
+
+    Merge branch 'master' of github.com:jromeem/cs373-pfd
+
+commit a88e4fe063d179c53f941d428c52447f466ce1f7
+Author: Jerome Martinez <jerome.e.martinez@gmail.com>
+Date:   Thu Jun 14 12:19:23 2012 -0500
+
+    added psuedo-code
+
+commit c8b9d2f972aa16416daa0c63d244a3534643a2d5
+Author: jromeem <jerome.e.martinez@gmail.com>
+Date:   Thu Jun 14 12:07:09 2012 -0500
+
+    edit...
+
 commit ea358d427238ee74e1becd5ab9cf450bf8dc8aa8
 Author: Jerome Martinez <jerome.e.martinez@gmail.com>
 Date:   Wed Jun 13 23:58:09 2012 -0500

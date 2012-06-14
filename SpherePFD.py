@@ -3,16 +3,13 @@
 # C S 373
 # SpherePFD.py
 
-print "hello world!"
-
-
 import sys
 
 # ------------
 # pfd_read
 # ------------
 
-def pfd_read (r, a) :
+def pfd_read (r) :
     """
     reads two ints into a[0] and a[1]
     r is a  reader
@@ -23,12 +20,35 @@ def pfd_read (r, a) :
     if s == "" :
         return False
     l = s.split()
-    a[0] = int(l[0])
-    a[1] = int(l[1])
-    assert a[0] > 0
-    assert a[1] > 0
-    return True
+    tasks = int(l[0])
+    rules = int(l[1])
+    
+    assert tasks > 0
+    assert rules > 0
 
+    pred_list = [[]]*(tasks+1)
+    
+    for curr_r in range(0, rules):
+        line = r.readline()
+        temp = line.split()
+        
+        for x in range(0, len(temp)):
+            temp[x] = int(temp[x])
+            
+        pred_list[temp[0]] = temp[2:]
+
+
+    
+    succ_list = []
+    for x in range(0, len(pred_list)):
+        succ_list.append([])
+    
+    for curr_pred in range(1, len(pred_list)):
+        for curr_succ in pred_list[curr_pred]:
+            
+            succ_list[curr_succ].append(curr_pred)
+
+    return pred_list, succ_list 
 
 def pfd_solve (r, w):
     """
@@ -36,19 +56,49 @@ def pfd_solve (r, w):
     r is a reader
     w is a writer
     """
+    p = pfd_read(r)
+    pred_list = p[0]
+    succ_list = p[1]
 
-    """
-    List of vertices []
+    print "pred_list", pred_list
+    print "succ_list", succ_list
+    pfd_eval(pred_list, succ_list)
 
-    for each vertex :
-        no. of predecessor: int
-        list of all predecessors: [int]
-        list of successors: [int]
+def pfd_eval (pred_list, succ_list):
+    zero_pred = []
 
-    container of 0-predcessor vertices: [int]
+    for vert in range(1, len(pred_list)):
+        if pred_list[vert] == []:
+            zero_pred.append(vert)
 
-    for each 0-pred vertex in container:
-        find 0-pred vertices 
-        find the lowest value in the 0-pred list
-        print that vertex
-        decrement the pred-count each of the successors
+
+
+    
+    for vert in zero_pred:
+        pred_count = 0
+        min_vert = 0
+        min_vert_count = 200
+        
+        for succ in succ_list[vert]:
+            print pred_list
+            
+            pred_count = len(pred_list[vert])
+
+            if pred_count < min_vert_count:
+                min_vert = succ
+                min_vert_count = pred_count
+
+            pred_list[succ].remove(vert)              
+
+            if len(pred_list[succ]) == 0:
+                zero_pred.append(succ)
+                #print vert
+        
+        print vert
+        zero_pred.remove(vert)
+
+# ----
+# main
+# ----
+
+pfd_solve(sys.stdin, sys.stdout)
