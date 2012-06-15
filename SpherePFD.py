@@ -26,8 +26,8 @@ def pfd_read (r) :
     assert tasks > 0
     assert rules > 0
 
+    # populate the predecessor list
     pred_list = [[]]*(tasks+1)
-    
     for curr_r in range(0, rules):
         line = r.readline()
         temp = line.split()
@@ -37,8 +37,7 @@ def pfd_read (r) :
             
         pred_list[temp[0]] = temp[2:]
 
-
-    
+    # populate the successor list
     succ_list = []
     for x in range(0, len(pred_list)):
         succ_list.append([])
@@ -48,6 +47,7 @@ def pfd_read (r) :
             
             succ_list[curr_succ].append(curr_pred)
 
+    # return both lists
     return pred_list, succ_list 
 
 def pfd_solve (r, w):
@@ -64,10 +64,17 @@ def pfd_solve (r, w):
     #print "succ_list", succ_list
     pfd_eval(pred_list, succ_list)
 
+def find_lowest (int_list):
+    min_int = int_list[0]
+    for x in int_list:
+        min_int = min(min_int, x)
+    return min_int
+
 def pfd_eval (pred_list, succ_list):
     zero_pred = []
     output_string = ""
 
+    # find all the starting vertices that are independent
     for vert in range(1, len(pred_list)):
         if pred_list[vert] == []:
             zero_pred.append(vert)
@@ -79,7 +86,7 @@ def pfd_eval (pred_list, succ_list):
     # not after each iteration.
     # so as a while loop, we're safe, since it continues to check that condition.
     while len(zero_pred):
-        vert = zero_pred[0]
+        vert = find_lowest(zero_pred)
         pred_count = 0
         min_vert = 0
         min_vert_count = 200
