@@ -26,7 +26,10 @@ def pfd_read (r) :
     assert tasks > 0
     assert rules > 0
 
-    # populate the predecessor list
+    return tasks, rules
+
+# populate the predecessor list
+def build_pred (r, tasks, rules):
     pred_list = [[]]*(tasks+1)
     for curr_r in range(0, rules):
         line = r.readline()
@@ -37,7 +40,10 @@ def pfd_read (r) :
             
         pred_list[temp[0]] = temp[2:]
 
-    # populate the successor list
+    return pred_list
+
+# populate the successor list
+def build_succ (pred_list):    
     succ_list = []
     for x in range(0, len(pred_list)):
         succ_list.append([])
@@ -46,33 +52,13 @@ def pfd_read (r) :
         for curr_succ in pred_list[curr_pred]:
             
             succ_list[curr_succ].append(curr_pred)
-
-    # return both lists
-    return pred_list, succ_list 
-
-def pfd_solve (r, w):
-    """
-    read, eval, print loop
-    r is a reader
-    w is a writer
-    """
-    p = pfd_read(r)
-    pred_list = p[0]
-    succ_list = p[1]
-
-    #print "pred_list", pred_list
-    #print "succ_list", succ_list
-    pfd_eval(pred_list, succ_list)
-
-def find_lowest (int_list):
-    min_int = int_list[0]
-    for x in int_list:
-        min_int = min(min_int, x)
-    return min_int
+    
+    return succ_list 
 
 def pfd_eval (pred_list, succ_list):
     zero_pred = []
-    output_string = ""
+    size = 2 * (len(pred_list)) - 1
+    output = []*size
 
     # find all the starting vertices that are independent
     for vert in range(1, len(pred_list)):
@@ -86,7 +72,7 @@ def pfd_eval (pred_list, succ_list):
     # not after each iteration.
     # so as a while loop, we're safe, since it continues to check that condition.
     while len(zero_pred):
-        vert = find_lowest(zero_pred)
+        vert = min(zero_pred)
         pred_count = 0
         min_vert = 0
         min_vert_count = 200
@@ -104,12 +90,30 @@ def pfd_eval (pred_list, succ_list):
                 zero_pred.append(succ)
                 #print vert
         
-        output_string += str(vert) + " "
+        output += [str(vert)]
+        output += [" "]
         zero_pred.remove(vert)
         
-    print output_string[:-1]
-    #print "zero_pred", zero_pred
+    return output[:-1]
+
+def pfd_print (w, int_list):
+    for x in int_list:
+        w.write(x)
+
+def pfd_solve (r, w):
+    """
+    read, eval, print loop
+    r is a reader
+    w is a writer
+    """
+    tasks, rules = pfd_read(r)
+    pred_list = build_pred(r, tasks, rules)
+    succ_list = build_succ(pred_list)
+
     #print "pred_list", pred_list
+    #print "succ_list", succ_list
+    output = pfd_eval(pred_list, succ_list)
+    pfd_print(w, output)
 
 # ----
 # main
