@@ -4,6 +4,7 @@
 # SpherePFD.py
 
 import sys
+import heapq
 
 # ------------
 # pfd_read
@@ -63,7 +64,8 @@ def pfd_eval (pred_list, succ_list):
     # find all the starting vertices that are independent
     for vert in range(1, len(pred_list)):
         if pred_list[vert] == []:
-            zero_pred.append(vert)
+            #zero_pred.append(vert)
+            heapq.heappush(zero_pred, vert)
 
     # NOTES TO SELVES:
     # below, originally had for vert in zero_pred: instead of while loop, but
@@ -72,7 +74,8 @@ def pfd_eval (pred_list, succ_list):
     # not after each iteration.
     # so as a while loop, we're safe, since it continues to check that condition.
     while len(zero_pred):
-        vert = min(zero_pred)
+        #vert = min(zero_pred)
+        vert = heapq.heappop(zero_pred)
         pred_count = 0
         min_vert = 0
         min_vert_count = 200
@@ -87,12 +90,14 @@ def pfd_eval (pred_list, succ_list):
             pred_list[succ].remove(vert)  
 
             if len(pred_list[succ]) == 0:
-                zero_pred.append(succ)
+                #zero_pred.append(succ)
+                heapq.heappush(zero_pred, succ)
                 #print vert
         
         output += [str(vert)]
         output += [" "]
-        zero_pred.remove(vert)
+        #heapq.heappop(zero_pred)
+        #zero_pred.remove(vert)
         
     return output[:-1]
 
