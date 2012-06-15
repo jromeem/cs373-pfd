@@ -9,8 +9,8 @@ Actual    number of hours:
 
 Partner First Name: Michael
 Partner Last Name: Pace
-Partner EID:
-Partner Estimated number of hours:
+Partner EID: msp684
+Partner Estimated number of hours: 30
 Partner Actual    number of hours:
 
 Turnin CS Username: jromeem
