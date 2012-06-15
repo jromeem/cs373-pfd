@@ -109,9 +109,7 @@ def pfd_solve (r, w):
     tasks, rules = pfd_read(r)
     pred_list = build_pred(r, tasks, rules)
     succ_list = build_succ(pred_list)
-
-    #print "pred_list", pred_list
-    #print "succ_list", succ_list
+    
     output = pfd_eval(pred_list, succ_list)
     pfd_print(w, output)
 
