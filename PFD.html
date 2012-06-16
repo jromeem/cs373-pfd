@@ -28,15 +28,25 @@
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-build_pred"><strong>build_pred</strong></a>(r, tasks, rules)</dt><dd><tt>builds&nbsp;the&nbsp;list&nbsp;of&nbsp;predecessors</tt></dd></dl>
- <dl><dt><a name="-build_succ"><strong>build_succ</strong></a>(pred_list)</dt><dd><tt>builds&nbsp;the&nbsp;list&nbsp;of&nbsp;successors</tt></dd></dl>
- <dl><dt><a name="-pfd_eval"><strong>pfd_eval</strong></a>(pred_list, succ_list)</dt><dd><tt>main&nbsp;function&nbsp;that&nbsp;computes&nbsp;the&nbsp;file&nbsp;dependency&nbsp;algorithm</tt></dd></dl>
- <dl><dt><a name="-pfd_print"><strong>pfd_print</strong></a>(w, int_list)</dt><dd><tt>prints&nbsp;everything&nbsp;in&nbsp;the&nbsp;list</tt></dd></dl>
- <dl><dt><a name="-pfd_read"><strong>pfd_read</strong></a>(r)</dt><dd><tt>reads&nbsp;two&nbsp;ints&nbsp;into&nbsp;a[0]&nbsp;and&nbsp;a[1]<br>
+<td width="100%"><dl><dt><a name="-build_pred"><strong>build_pred</strong></a>(r, tasks, rules)</dt><dd><tt>builds&nbsp;the&nbsp;list&nbsp;of&nbsp;predecessors<br>
+r&nbsp;is&nbsp;the&nbsp;reader<br>
+tasks&nbsp;is&nbsp;the&nbsp;number&nbsp;of&nbsp;tasks<br>
+rules&nbsp;is&nbsp;the&nbsp;number&nbsp;of&nbsp;rules<br>
+return&nbsp;predecessor&nbsp;list</tt></dd></dl>
+ <dl><dt><a name="-build_succ"><strong>build_succ</strong></a>(pred_list)</dt><dd><tt>builds&nbsp;the&nbsp;list&nbsp;of&nbsp;successors<br>
+pred_list&nbsp;is&nbsp;the&nbsp;predecessor&nbsp;list<br>
+returns&nbsp;the&nbsp;successor&nbsp;list</tt></dd></dl>
+ <dl><dt><a name="-pfd_eval"><strong>pfd_eval</strong></a>(pred_list, succ_list)</dt><dd><tt>main&nbsp;function&nbsp;that&nbsp;computes&nbsp;the&nbsp;file&nbsp;dependency&nbsp;algorithm<br>
+pred_list&nbsp;is&nbsp;the&nbsp;predecessor&nbsp;list<br>
+succ_list&nbsp;is&nbsp;the&nbsp;successor&nbsp;list<br>
+returns&nbsp;list&nbsp;of&nbsp;values&nbsp;to&nbsp;be&nbsp;outputed</tt></dd></dl>
+ <dl><dt><a name="-pfd_print"><strong>pfd_print</strong></a>(w, int_list)</dt><dd><tt>prints&nbsp;everything&nbsp;in&nbsp;the&nbsp;list<br>
+w&nbsp;is&nbsp;the&nbsp;writer<br>
+int_list&nbsp;is&nbsp;the&nbsp;list&nbsp;to&nbsp;be&nbsp;outputed</tt></dd></dl>
+ <dl><dt><a name="-pfd_read"><strong>pfd_read</strong></a>(r)</dt><dd><tt>reads&nbsp;first&nbsp;line&nbsp;of&nbsp;ints<br>
 r&nbsp;is&nbsp;a&nbsp;&nbsp;reader<br>
-a&nbsp;is&nbsp;an&nbsp;array&nbsp;on&nbsp;int<br>
-return&nbsp;true&nbsp;if&nbsp;that&nbsp;succeeds,&nbsp;false&nbsp;otherwise</tt></dd></dl>
- <dl><dt><a name="-pfd_solve"><strong>pfd_solve</strong></a>(r, w)</dt><dd><tt>read,&nbsp;eval,&nbsp;print&nbsp;loop<br>
+return&nbsp;tasks&nbsp;and&nbsp;rules</tt></dd></dl>
+ <dl><dt><a name="-pfd_solve"><strong>pfd_solve</strong></a>(r, w)</dt><dd><tt>read&nbsp;first&nbsp;line,&nbsp;build&nbsp;lists,&nbsp;eval,&nbsp;print<br>
 r&nbsp;is&nbsp;a&nbsp;reader<br>
 w&nbsp;is&nbsp;a&nbsp;writer</tt></dd></dl>
 </td></tr></table>

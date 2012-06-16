@@ -5,13 +5,13 @@ First Name: Jerome
 Last Name: Martinez
 EID: jm49674
 Estimated number of hours: 35~
-Actual    number of hours:
+Actual    number of hours: 15
 
 Partner First Name: Michael
 Partner Last Name: Pace
 Partner EID: msp684
 Partner Estimated number of hours: 30
-Partner Actual    number of hours:
+Partner Actual    number of hours: 15
 
 Turnin CS Username: jromeem
 GitHub ID: jromeem
