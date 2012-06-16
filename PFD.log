@@ -1,3 +1,83 @@
+commit c06d603fc7ee835c0ad5bdb76622ccc9b023e6bd
+Merge: e08d1ae 9eb4af1
+Author: Jerome Martinez <jerome.e.martinez@gmail.com>
+Date:   Sat Jun 16 17:55:18 2012 -0500
+
+    Merge branch 'master' of github.com:jromeem/cs373-pfd
+
+commit e08d1ae4f77bada9307ed5840290a4660a7466e9
+Author: Jerome Martinez <jerome.e.martinez@gmail.com>
+Date:   Sat Jun 16 17:54:46 2012 -0500
+
+    updated files
+
+commit 9eb4af15a911cadaa8440289f37513667dad15fc
+Merge: 9caf5b3 abab5b2
+Author: Michael Pace <mpace1027@gmail.com>
+Date:   Sat Jun 16 17:53:15 2012 -0500
+
+    removed generateAcceptanceTest.js file
+
+commit 9caf5b32b33c46b6cb41a356f67d4f951bfbb5ed
+Author: Michael Pace <mpace1027@gmail.com>
+Date:   Sat Jun 16 17:53:01 2012 -0500
+
+    removed test files
+
+commit abab5b2427cef30aad1e1b63c8c1b53adcd30b27
+Author: Jerome Martinez <jerome.e.martinez@gmail.com>
+Date:   Sat Jun 16 17:27:36 2012 -0500
+
+    added 'organization' to the zero predecessor list
+
+commit ac432a0754a512b5309538ff774d9c1cf4adc88a
+Author: Jerome Martinez <jerome.e.martinez@gmail.com>
+Date:   Sat Jun 16 17:06:07 2012 -0500
+
+    file name change
+
+commit 98096c0d6e43c76908cc9bdaf73209de9377bfb7
+Author: Michael Pace <mpace1027@gmail.com>
+Date:   Sat Jun 16 17:01:50 2012 -0500
+
+    removed test.py
+
+commit 1a645674afc7f85e2aa5270b11326388bd3dc1f4
+Author: Michael Pace <mpace1027@gmail.com>
+Date:   Sat Jun 16 17:01:11 2012 -0500
+
+    added acceptance test
+
+commit 4e008268a16912826a3992b3f6b2a2edeb6323e4
+Author: Jerome Martinez <jerome.e.martinez@gmail.com>
+Date:   Sat Jun 16 16:11:14 2012 -0500
+
+    added testpfd.py.out
+
+commit b54f2e20970a1ae64f97c26b6a5941ac1c4d43fb
+Author: Jerome Martinez <jerome.e.martinez@gmail.com>
+Date:   Sat Jun 16 16:09:34 2012 -0500
+
+    updated unit tests, pfd.py, documentation
+
+commit 62f734c8c0618514993db6bdeaded855d20f1c13
+Author: Jerome Martinez <jerome.e.martinez@gmail.com>
+Date:   Fri Jun 15 12:50:47 2012 -0500
+
+    updated unit tests and runpfd
+
+commit f1f8fc0afcd928c21acb86154e0105891a941b84
+Author: Jerome Martinez <jerome.e.martinez@gmail.com>
+Date:   Fri Jun 15 12:37:46 2012 -0500
+
+    separated into smaller functions; string building optimization; sphere accepted
+
+commit 39d2ee7849ad65a818f4e82320016a00bf97c08c
+Author: Jerome Martinez <jerome.e.martinez@gmail.com>
+Date:   Fri Jun 15 11:38:53 2012 -0500
+
+    first working solution: Sphere accepted
+
 commit 696fb93e0de1658d0fc13f3d4beaf1e7eb6bdcef
 Author: Michael Pace <mpace1027@gmail.com>
 Date:   Fri Jun 15 01:44:03 2012 -0500
