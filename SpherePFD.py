@@ -94,7 +94,8 @@ def pfd_eval (pred_list, succ_list):
     # not after each iteration.
     # so as a while loop, we're safe, since it continues to check that condition.
     while len(zero_pred):
-        vert = min(zero_pred)
+        zero_pred = sorted(zero_pred)
+        vert = zero_pred[0]
         pred_count = 0
         min_vert = 0
         min_vert_count = 200

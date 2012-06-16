@@ -88,7 +88,8 @@ def pfd_eval (pred_list, succ_list):
             zero_pred.append(vert)
     
     while len(zero_pred):
-        vert = min(zero_pred)
+        zero_pred = sorted(zero_pred)
+        vert = zero_pred[0]
         pred_count = 0
         min_vert = 0
         min_vert_count = 200
