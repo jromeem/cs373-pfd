@@ -5,9 +5,9 @@
 
 import sys
 
-# ------------
+# --------
 # pfd_read
-# ------------
+# --------
 
 def pfd_read (r) :
     """
@@ -28,8 +28,15 @@ def pfd_read (r) :
 
     return tasks, rules
 
-# populate the predecessor list
+
+# ----------
+# build_pred
+# ----------
+
 def build_pred (r, tasks, rules):
+    """
+    builds the list of predecessors
+    """
     pred_list = [[]]*(tasks+1)
     for curr_r in range(0, rules):
         line = r.readline()
@@ -42,8 +49,15 @@ def build_pred (r, tasks, rules):
 
     return pred_list
 
-# populate the successor list
-def build_succ (pred_list):    
+
+# ----------
+# build_succ
+# ----------
+
+def build_succ (pred_list):
+    """
+    builds the list of successors
+    """
     succ_list = []
     for x in range(0, len(pred_list)):
         succ_list.append([])
@@ -55,7 +69,15 @@ def build_succ (pred_list):
     
     return succ_list 
 
+
+# --------
+# pfd_eval
+# --------
+
 def pfd_eval (pred_list, succ_list):
+    """
+    main function that computes the file dependency algorithm
+    """
     zero_pred = []
     size = 2 * (len(pred_list)) - 1
     output = []*size
@@ -96,9 +118,22 @@ def pfd_eval (pred_list, succ_list):
         
     return output[:-1]
 
+
+# ---------
+# pfd_print
+# ---------
+
 def pfd_print (w, int_list):
+    """
+    prints everything in the list
+    """
     for x in int_list:
         w.write(x)
+
+
+# ---------
+# pfd_solve
+# ---------
 
 def pfd_solve (r, w):
     """
@@ -116,5 +151,4 @@ def pfd_solve (r, w):
 # ----
 # main
 # ----
-
 pfd_solve(sys.stdin, sys.stdout)
